@@ -1,4 +1,4 @@
-`paxd-libre` is a simple daemon for Parabola GNU/Linux intended to allow PaX to be enabled out-of-the-box.
+`paxd-libre` is a simple daemon for Parabola GNU/Linux-libre intended to allow PaX to be enabled out-of-the-box.
 
 Support for hooks in Pacman would be significantly better, but this can fill the gap until that point.
 
