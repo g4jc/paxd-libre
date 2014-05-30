@@ -8,11 +8,11 @@ else
 	CFLAGS += -Wall -Wextra
 endif
 
-paxd: paxd.c
+paxd-libre: paxd-libre.c
 
-install: paxd paxd.conf
-	install -Dm755 paxd $(DESTDIR)/usr/bin/paxd-libre
-	install -Dm600 paxd.conf $(DESTDIR)/etc/paxd-libre.conf
-	install -Dm644 paxd.service $(DESTDIR)/usr/lib/systemd/system/paxd-libre.service
+install: paxd-libre paxd-libre.conf
+	install -Dm755 paxd-libre $(DESTDIR)/usr/bin/paxd-libre
+	install -Dm600 paxd-libre.conf $(DESTDIR)/etc/paxd-libre.conf
+	install -Dm644 paxd-libre.service $(DESTDIR)/usr/lib/systemd/system/paxd-libre.service
 	mkdir -p $(DESTDIR)/usr/lib/systemd/system/sysinit.target.wants
 	cd $(DESTDIR)/usr/lib/systemd/system/sysinit.target.wants; ln -sf ../paxd-libre.service .
