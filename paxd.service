@@ -1,8 +1,0 @@
-[Unit]
-Description=PaX exception daemon
-DefaultDependencies=no
-After=systemd-readahead-collect.service systemd-readahead-replay.service
-Before=sysinit.target
-
-[Service]
-ExecStart=/usr/bin/paxd
