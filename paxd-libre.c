@@ -1,5 +1,6 @@
 #define _GNU_SOURCE
 
+#include <ctype.h>
 #include <err.h>
 #include <errno.h>
 #include <limits.h>
@@ -51,6 +52,21 @@ static void update_attributes() {
             fprintf(stderr, "ignored invalid line in /etc/paxd-libre.conf: %s", line);
             break;
         }
+
+        const char *valid = "pemrs";
+
+        for (const char *flag = flags; flag < split; flag++) {
+
+            if (!strchr(valid, tolower(*flag))) {
+
+                fprintf(stderr, "ignored invalid line in /etc/paxd-libre.conf: %s", line);
+
+                break;
+
+            }
+
+        }
+
 
         const char *path = split + strspn(split, " \t"); // find the start of the path
         if (*path == '\0' || *path != '/') {
