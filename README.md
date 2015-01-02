@@ -1,8 +1,12 @@
-`paxd-libre` is a simple daemon for Parabola GNU/Linux-libre intended to allow PaX to be enabled out-of-the-box.
+`paxd-libre` is a daemon for automatically maintaining PaX exceptions of free software. It re-applies
+exceptions whenever an executable is created / replaced. It also applies all of
+the exceptions at start-up and when the configuration file is modified.
 
-Support for hooks in Pacman would be significantly better, but this can fill the gap until that point.
+Since `paxd-libre` watches the parent directory chain for each executable, it has no
+problem dealing with the creation of an executable in a directory that did not
+exist when it was started. It works fine with all package managers it has been
+tried with.
 
-It reads the `/etc/paxd-libre.conf` configuration file and applies the listed PaX exception flags to
-binaries on start-up. It waits for finished pacman transactions or changes to the configuration file
-and re-applies the attributes as-needed. It will do more work than necessary, but setting extended
-attributes for a hundred files is far cheaper than Pacman simply reading the database.
+The sample `paxd-libre.conf` is targeted at Parabola GNU/Linux-libre, and the expectation is that
+maintainers / users of other distributions will maintain a modified version
+downstream.
