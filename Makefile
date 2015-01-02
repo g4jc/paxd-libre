@@ -12,7 +12,7 @@ else
 	CFLAGS += -Wall -Wextra
 endif
 
-all: paxd-libre-libre
+all: paxd-libre
 paxd-libre: paxd-libre.o flags.o
 flags: flags.c flags.h
 
