@@ -27,6 +27,5 @@ install: paxd-libre paxd-libre.conf
 	mkdir -p $(DESTDIR)/usr/lib/systemd/system/sysinit.target.wants
 	ln -t $(DESTDIR)/usr/lib/systemd/system/sysinit.target.wants -sf ../paxd-libre.service
 	ln -sf $(DESTDIR)/etc/paxd-libre.conf $(DESTDIR)/etc/paxd.conf
-	ln -sf $(DESTDIR)/usr/lib/systemd/user/paxd-libre.service $(DESTDIR)/usr/lib/systemd/user/paxd.service
 
 .PHONY: all clean install
