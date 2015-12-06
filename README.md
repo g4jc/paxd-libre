@@ -10,3 +10,14 @@ tried with.
 The sample `paxd-libre.conf` is targeted at Parabola GNU/Linux-libre, and the expectation is that
 maintainers / users of other distributions will maintain a modified version
 downstream.
+
+## Setting up user level paxd-libre
+
+Copy `user.conf` to `~/.config/paxd-libre.conf`, and then enable the user service:
+
+    systemctl --user enable paxd-libre
+    systemctl --user start paxd-libre
+
+Files controlled by non-root shouldn't be added to the global configuration
+file, as those users would be able to use symlinks to set exceptions on any
+files.
