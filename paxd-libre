@@ -1,0 +1,9 @@
+#!/sbin/openrc-run
+  
+depend() {
+	need localmount
+}
+  
+start() {
+/usr/bin/paxd-libre
+}
